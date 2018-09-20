@@ -12,19 +12,51 @@ const notes = require('./notes.js');
 // argv: argument vector/array => usefiul for CLI commands & I/O
 const argv = yargs.argv;
 // var command = process.argv[2];
+// console.log("Process: ", process.argv);
 var command = argv._[0];
 console.log('Command: ', command);
-console.log("Process: ", process.argv);
 console.log("Yargs: ", argv);
 
 if (command === 'add') {
-    notes.addNote(argv.title, argv.body);
+    var note = notes.addNote(argv.title, argv.body);
+    if (note) {
+        console.log(`Note created`);
+        console.log(`   -----`);
+        console.log(`Note with Title: \"${argv.title}\" was created.`);
+        console.log(`Note with Body: \"${argv.body}\" was created.`);
+    } else {
+        console.log(
+            `Title: \"${argv.title}\" is taken. Use different title please.`
+        );
+    }
 } else if (command === 'list') {
-    notes.getAll();
+    var allNotes = notes.getAll();
+    console.log("All Notes:");
+    console.log(`  -----`);
+    allNotes.forEach((note) => {
+        console.log(`Title: ${note.title}`);
+        console.log(`Body: ${note.body}`);
+    });
+    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+
 } else if (command === 'read') {
-    notes.getNote(argv.title);
+    note = notes.getNote(argv.title);
+    if (note) {
+        console.log(`Note`);
+        console.log(` --`);
+        console.log(`Title: ${note.title}`);
+        console.log(`Body: ${note.body}`);
+    } else {
+        console.log(`Note with Title: \"${argv.title}\" does not exist.`);
+
+    }
 } else if (command === 'remove') {
-    notes.removeNote(argv.title);
+    var noteRemoved = notes.removeNote(argv.title);
+    var message = noteRemoved ?
+        `Note with title \"${argv.title}\" has been removed.` :
+        "Note not found";
+    console.log(message);
+
 } else {
     console.log('Command not recognized.');
 }
@@ -68,7 +100,7 @@ if (command === 'add') {
 // var twoSum = notes.addTwoNums(9, 22);
 // console.log(twoSum);
 
-// appendFile('greetings.txt', `9 + 22 = ${twoSum} \n`, function (err) {
+// appendFile('./playground/greetings.txt', `9 + 22 = ${twoSum} \n`, function (err) {
 //     if (err) {
 //         console.log('Unable to write to file');
 //     }
@@ -79,18 +111,17 @@ if (command === 'add') {
 
 // var user = os.userInfo();
 // // console.log(user);
-// fs.appendFile("greetings.txt", `Hello ${user.username}! \nYou are ${notes.age}! \n`, function(err) {
+// fs.appendFile("./playground/greetings.txt", `Hello ${user.username}! \nYou are ${notes.age}! \n`, function(err) {
 //   if (err) {
 //     console.log("Unable to write file");
 //   }
 // });
 
-// fs.appendFile('greetings.txt', "Hello World!\n", function (err) {
+// fs.appendFile('./playground/greetings.txt', "Hello World!\n", function (err) {
 //     if (err) {
 //         console.log('Unable to write file');
 //     }
 // });
 // For ES7 and up use above code or below
 // With callback, use above, without callback, use below
-// fs.appendFileSync('greetings.txt'. "Hello World.");
-
+// fs.appendFileSync('./playground/greetings.txt'. "Hello World.");
