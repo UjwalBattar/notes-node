@@ -2,19 +2,32 @@
 
 console.log('Starting App!');
 
+// before ES6:
 const fs = require('fs');
 const os = require('os');
 const notes = require('./notes.js');
+const _ = require('lodash');
 
-var twoSum = notes.addTwoNums(9, 22);
-console.log(twoSum);
+// With ES6: (getting errors... must check)
+// import { appendFile } from 'fs';
+// import os from 'os';
+// import _ from 'lodash';
+// import { addTwoNums } from './notes.js';
 
-fs.appendFile('greetings.txt', `9 + 22 = ${twoSum} \n`, function (err) {
-    if (err) {
-        console.log('Unable to write to file');
-    }
-});
+var filteredArray = _.uniq(["Ujwal", 1, 2, 3, 3, 4, 4, 4, "Ujwal"]);
+console.log(filteredArray);
 
+// console.log(_.isString(true));
+// console.log(_.isString("What up world!"));
+
+// var twoSum = addTwoNums(9, 22);
+// console.log(twoSum);
+
+// appendFile('greetings.txt', `9 + 22 = ${twoSum} \n`, function (err) {
+//     if (err) {
+//         console.log('Unable to write to file');
+//     }
+// });
 
 // var res = notes.addNote();
 // console.log(res);
