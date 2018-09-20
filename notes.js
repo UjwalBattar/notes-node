@@ -1,6 +1,33 @@
 console.log('Starting notes.js');   
 
+var addNote = (title, body) => {
+    console.log("Adding note:", title, body);
+    
+};
 
+var getAll = () => {
+    console.log('Getting all notes...');
+    
+};
+
+var getNote = (title) => {
+    console.log('Here is the note you requested: ', title);
+    
+};
+
+var removeNote = (title) => {
+    console.log('Removing the note with the title: ', title);
+    
+};
+
+module.exports = {
+    // addNote: addNote => same thing below, if attribute and value are same
+    // below is used in ES6
+    addNote,
+    getAll,
+    getNote,
+    removeNote
+};
 
 
 
