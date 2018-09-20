@@ -10,7 +10,7 @@ const notes = require('./notes.js');
 
 // console.log(process.argv);
 // argv: argument vector/array => usefiul for CLI commands & I/O
-const argv = yargs.argv
+const argv = yargs.argv;
 // var command = process.argv[2];
 var command = argv._[0];
 console.log('Command: ', command);
