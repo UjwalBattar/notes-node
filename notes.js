@@ -1,5 +1,30 @@
 console.log('Starting notes.js');   
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// NOTES and REVIEW:
+
 // module.exports.addTwoNums = (a, b) => {
 //     console.log(`adding ${a} and ${b}....`);
 //     return a + b;

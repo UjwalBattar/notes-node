@@ -2,6 +2,46 @@
 
 console.log('Starting App!');
 
+const fs = require('fs');
+const _ = require('lodash');
+
+const notes = require('./notes.js');
+
+// console.log(process.argv);
+// argv: argument vector/array => usefiul for CLI commands & I/O
+var command = process.argv[2];
+console.log('Command: ', command);
+console.log(process.argv);
+
+if (command === 'add') {
+    console.log('Adding new note!');
+} else if (command === 'list') {
+    console.log('Listing all notes:');
+} else if (command === 'read') {
+    console.log('Reading note...');
+} else if (command === 'remove') {
+    console.log('Removing note!');
+} else {
+    console.log('Command not recognized.');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// NOTES and REVIEW:
+
 // With ES6: (getting errors... must check)
 // import { appendFile } from 'fs';
 // import os from 'os';
@@ -10,18 +50,18 @@ console.log('Starting App!');
 
 // before ES6:
 // const os = require('os');
-const fs = require('fs');
-const _ = require('lodash');
+// const fs = require("fs");
+// const _ = require("lodash");
 
-const notes = require('./notes.js');
+// const notes = require("./notes.js");
 
-var filteredArray = _.uniq(["Hello", "Ujwal", 1, 2, 3, 3, 4, 4, 4, "Ujwal", "Hello"]);
-console.log(filteredArray);
+// var filteredArray = _.uniq(["Hello", "Ujwal", 1, 2, 3, 3, 4, 4, 4, "Ujwal", "Hello"]);
+// console.log(filteredArray);
 
 // console.log(_.isString(true));
 // console.log(_.isString("What up world!"));
 
-// var twoSum = addTwoNums(9, 22);
+// var twoSum = notes.addTwoNums(9, 22);
 // console.log(twoSum);
 
 // appendFile('greetings.txt', `9 + 22 = ${twoSum} \n`, function (err) {
