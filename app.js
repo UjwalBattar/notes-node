@@ -2,19 +2,20 @@
 
 console.log('Starting App!');
 
-// before ES6:
-const fs = require('fs');
-const os = require('os');
-const notes = require('./notes.js');
-const _ = require('lodash');
-
 // With ES6: (getting errors... must check)
 // import { appendFile } from 'fs';
 // import os from 'os';
 // import _ from 'lodash';
 // import { addTwoNums } from './notes.js';
 
-var filteredArray = _.uniq(["Ujwal", 1, 2, 3, 3, 4, 4, 4, "Ujwal"]);
+// before ES6:
+// const os = require('os');
+const fs = require('fs');
+const _ = require('lodash');
+
+const notes = require('./notes.js');
+
+var filteredArray = _.uniq(["Hello", "Ujwal", 1, 2, 3, 3, 4, 4, 4, "Ujwal", "Hello"]);
 console.log(filteredArray);
 
 // console.log(_.isString(true));

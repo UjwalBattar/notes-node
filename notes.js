@@ -1,9 +1,9 @@
 console.log('Starting notes.js');   
 
-module.exports.addTwoNums = (a, b) => {
-    console.log(`adding ${a} and ${b}....`);
-    return a + b;
-}
+// module.exports.addTwoNums = (a, b) => {
+//     console.log(`adding ${a} and ${b}....`);
+//     return a + b;
+// }
 
 // module.exports.addNote = () => {
 //     console.log('addNote');
