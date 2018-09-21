@@ -1,5 +1,3 @@
-/*jshint esversion: 6 */
-
 console.log('Starting App!');
 
 const fs = require('fs');
@@ -15,66 +13,39 @@ const argv = yargs.argv;
 // console.log("Process: ", process.argv);
 var command = argv._[0];
 console.log('Command: ', command);
-console.log("Yargs: ", argv);
+console.log('Yargs: ', argv);
 
 if (command === 'add') {
-    var note = notes.addNote(argv.title, argv.body);
-    if (note) {
-        console.log(`Note created`);
-        console.log(`   -----`);
-        console.log(`Note with Title: \"${argv.title}\" was created.`);
-        console.log(`Note with Body: \"${argv.body}\" was created.`);
-    } else {
-        console.log(
-            `Title: \"${argv.title}\" is taken. Use different title please.`
-        );
-    }
+	var note = notes.addNote(argv.title, argv.body);
+	if (note) {
+		console.log(`Note created`);
+		notes.logNote(note);
+	} else {
+		console.log(`Title: \"${argv.title}\" is taken. Use different title please.`);
+	}
 } else if (command === 'list') {
-    var allNotes = notes.getAll();
-    console.log("All Notes:");
-    console.log(`  -----`);
-    allNotes.forEach((note) => {
-        console.log(`Title: ${note.title}`);
-        console.log(`Body: ${note.body}`);
-    });
-    console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-
+	var allNotes = notes.getAll();
+	console.log('All Notes:');
+	console.log(`  -----`);
+	allNotes.forEach((note) => {
+		notes.logNote(note);
+	});
+	console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 } else if (command === 'read') {
-    note = notes.getNote(argv.title);
-    if (note) {
-        console.log(`Note`);
-        console.log(` --`);
-        console.log(`Title: ${note.title}`);
-        console.log(`Body: ${note.body}`);
-    } else {
-        console.log(`Note with Title: \"${argv.title}\" does not exist.`);
-
-    }
+	note = notes.getNote(argv.title);
+	if (note) {
+		console.log(`Note:`);
+		notes.logNote(note);
+	} else {
+		console.log(`Note with Title: \"${argv.title}\" does not exist.`);
+	}
 } else if (command === 'remove') {
-    var noteRemoved = notes.removeNote(argv.title);
-    var message = noteRemoved ?
-        `Note with title \"${argv.title}\" has been removed.` :
-        "Note not found";
-    console.log(message);
-
+	var noteRemoved = notes.removeNote(argv.title);
+	var message = noteRemoved ? `Note with title \"${argv.title}\" has been removed.` : 'Note not found';
+	console.log(message);
 } else {
-    console.log('Command not recognized.');
+	console.log('Command not recognized.');
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // NOTES and REVIEW:
 

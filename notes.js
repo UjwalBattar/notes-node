@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 console.log('Starting notes.js');
 
 const fs = require('fs');
@@ -49,13 +48,21 @@ var removeNote = (title) => {
     return notes.length !== filteredNotes.length;
 };
 
+var logNote = (note) => {
+    debugger;
+    console.log('--');
+    console.log(`Title: `, note.title);
+    console.log((`Body: `, note.body));
+};
+
 module.exports = {
     // addNote: addNote => same thing below, if attribute and value are same
     // below is used in ES6
     addNote,
     getAll,
     getNote,
-    removeNote
+    removeNote,
+    logNote
 };
 
 
