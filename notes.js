@@ -49,14 +49,15 @@ var removeNote = (title) => {
 };
 
 var logNote = (note) => {
-    debugger;
+    // debugger;
     console.log('--');
     console.log(`Title: `, note.title);
     console.log((`Body: `, note.body));
 };
 
 module.exports = {
-    // addNote: addNote => same thing below, if attribute and value are same
+    // addNote: addNote => same thing below, 
+    //                      if attribute and value are same
     // below is used in ES6
     addNote,
     getAll,
