@@ -1,19 +1,11 @@
-console.log('Starting App!');
-
 const fs = require('fs');
 const _ = require('lodash');
 const yargs = require('yargs');
 
 const notes = require('./notes.js');
 
-// console.log(process.argv);
-// argv: argument vector/array => usefiul for CLI commands & I/O
 const argv = yargs.argv;
-// var command = process.argv[2];
-// console.log("Process: ", process.argv);
 var command = argv._[0];
-console.log('Command: ', command);
-console.log('Yargs: ', argv);
 
 if (command === 'add') {
 	var note = notes.addNote(argv.title, argv.body);
@@ -25,11 +17,8 @@ if (command === 'add') {
 	}
 } else if (command === 'list') {
 	var allNotes = notes.getAll();
-	console.log('All Notes:');
-	console.log(`  -----`);
-	allNotes.forEach((note) => {
-		notes.logNote(note);
-	});
+	console.log(`Printing ${allNotes.length} notes(s):`);
+	allNotes.forEach((note) => notes.logNote(note));
 	console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~');
 } else if (command === 'read') {
 	note = notes.getNote(argv.title);
@@ -48,6 +37,15 @@ if (command === 'add') {
 }
 
 // NOTES and REVIEW:
+
+// console.log('Starting App!');
+
+// console.log(process.argv);
+// argv: argument vector/array => usefiul for CLI commands & I/O
+// var command = process.argv[2];
+// console.log("Process: ", process.argv);
+// console.log('Command: ', command);
+// console.log('Yargs: ', argv);
 
 // With ES6: (getting errors... must check)
 // import { appendFile } from 'fs';
