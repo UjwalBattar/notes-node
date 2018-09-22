@@ -7,3 +7,6 @@ debugger;
 person.name = 'Mike';
 
 console.log(person);
+
+// To Launch chrome dev tools
+// node--inspect - brk playground / debugging.js
